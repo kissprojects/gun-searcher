@@ -7,6 +7,7 @@ local lobbyHandlerCode = game:HttpGet(BASE_URL.."/lobby-handler.lua")
 local injectTables = loadstring(game:HttpGet(BASE_URL.."/inject_tables.lua"))()
 
 function queueLobbyHandler()
+    print(injectTables(lobbyHandlerCode, {[1] = SEARCHING_WEAPONS, [2] = SEARCHING_WEAPONS}))
     queue_on_teleport(injectTables(lobbyHandlerCode, {[1] = SEARCHING_WEAPONS, [2] = SEARCHING_WEAPONS}))
 end
 
