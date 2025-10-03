@@ -156,5 +156,6 @@ end
 
 -- Запускаем поиск
 task.spawn(function()
+    task.wait(2.5)
     searchWeapons()
 end)
