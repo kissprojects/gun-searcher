@@ -2,6 +2,14 @@ local SEARCHING_WEAPONS =
 local CHECKED_SERVERS = 
 -- tables here ^
 
+local BASE_URL = "https://raw.githubusercontent.com/kissprojects/gun-searcher/refs/heads/main"
+local lobbyHandlerCode = game:HttpGet(BASE_URL.."/lobby-handler.lua")
+local injectTables = loadstring(game:HttpGet(BASE_URL.."/inject_tables.lua"))()
+
+function queueLobbyHandler()
+    queue_on_teleport(injectTables(lobbyHandlerCode, {[1] = SEARCHING_WEAPONS, [2] = SEARCHING_WEAPONS}))
+end
+
 function createInfoMessageBox(text)
     local MB_ICONINFO = 0x00000040
     local MB_OKCANCEL = 0x00000001
@@ -132,12 +140,14 @@ function searchWeapons()
                 break
             elseif input == IDCANCEL then
                 print("Leaving to lobby and searching next server")
+                queueLobbyHandler()
                 leaveToLobby()
                 break
             end
         else
 
             print("No desired weapons found. Leaving to lobby.")
+            queueLobbyHandler()
             leaveToLobby()
             break
         end
