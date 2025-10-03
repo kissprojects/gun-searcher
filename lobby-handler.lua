@@ -3,4 +3,4 @@ local CHECKED_SERVERS =
 local CONFIG = 
 -- ^ tables here
 
-print(WEAPONS, CHECKED_SERVERS)
+print(WEAPONS, CHECKED_SERVERS, CONFIG)
