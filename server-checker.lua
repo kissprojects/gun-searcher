@@ -9,7 +9,7 @@ local injectTables = loadstring(game:HttpGet(BASE_URL.."/inject_tables.lua"))()
 
 function queueLobbyHandler()
     print(injectTables(lobbyHandlerCode, {[1] = SEARCHING_WEAPONS, [2] = SEARCHING_WEAPONS}))
-    queue_on_teleport(injectTables(lobbyHandlerCode, {[1] = SEARCHING_WEAPONS, [2] = SEARCHING_WEAPONS}))
+    queue_on_teleport(injectTables(lobbyHandlerCode, {[1] = SEARCHING_WEAPONS, [2] = SEARCHING_WEAPONS, [3] = CONFIG}))
 end
 
 function createInfoMessageBox(text)
