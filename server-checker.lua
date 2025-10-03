@@ -1,5 +1,6 @@
 local SEARCHING_WEAPONS = 
 local CHECKED_SERVERS = 
+local CONFIG = 
 -- tables here ^
 
 local BASE_URL = "https://raw.githubusercontent.com/kissprojects/gun-searcher/refs/heads/main"
