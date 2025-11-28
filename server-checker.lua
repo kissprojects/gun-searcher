@@ -35,8 +35,9 @@ function checkPlayersWeapons()
     local players = game:GetService("Players"):GetPlayers()
     
     for _, player in ipairs(players) do
+        
         local inventory = player:FindFirstChild("GunInventory")
-        if inventory then
+        if inventory and player ~= game.Players.LocalPlayer then
             local playerWeapons = {}
             
 
