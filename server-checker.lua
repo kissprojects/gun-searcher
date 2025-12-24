@@ -106,11 +106,13 @@ end
 
 
 function leaveToLobby()
-    pcall(function()
-        for _, connection in ipairs(getconnections(game.Players.LocalPlayer.PlayerGui.GameUI.Menu.MainMenu.Message.Controls.LeaveGame.MouseButton1Click)) do
-            connection:Fire()
-        end
-    end)
+    while task.wait(1) do
+        pcall(function()
+            for _, connection in ipairs(getconnections(game.Players.LocalPlayer.PlayerGui.GameUI.Menu.MainMenu.Message.Controls.LeaveGame.MouseButton1Click)) do
+                connection:Fire()
+            end
+        end)
+    end
 end
 
 
